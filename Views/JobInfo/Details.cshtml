@@ -1,0 +1,82 @@
+﻿@model Britehouse.Models.JobInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobRole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessTravel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessTravel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockOptionLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockOptionLevel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model._id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

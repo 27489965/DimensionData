@@ -1,0 +1,181 @@
+﻿@model Britehouse.AnalyticsModel.JobInfoView
+
+@{
+    ViewBag.Title = "Data Analytics";
+}
+
+<div class="banner_content text-center">
+    <p class="text-uppercase">
+        Dimension Data Project
+    </p>
+
+    <h2 class="text-uppercase mt-4 mb-5">
+        Job Info Dashboard
+    </h2>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Returns Data Visualization</title>
+    <!-- Meta Tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta Tags -->
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <!-- Bars Css -->
+    <link rel="stylesheet" href="~/Content/css/bar.css">
+    <!--// Bars Css -->
+    <!-- Calender Css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/pignose.calender.css" />
+    <!--// Calender Css -->
+    <!-- Common Css -->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Nav Css -->
+    <link rel="~/Content/stylesheet" href="css/style4.css">
+    <!--// Nav Css -->
+    <!-- Fontawesome Css -->
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet">
+    <!--// Fontawesome Css -->
+    <!--// Style-sheets -->
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!--//web-fonts-->
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- Pie-chart -->
+                    <div class="outer-w3-agile col-xl ml-xl-3 mt-xl-0 mt-3">
+                        <h4 class="tittle-w3-agileits mb-4">Number of Employees per Job Role</h4>
+                        <div id="chartdiv"></div>
+                    </div>
+                    <!--// Pie-chart -->
+                </div>
+                <!-- Simple-chart -->
+                <div class="outer-w3-agile mt-3">
+
+                    <div id="container"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Required common Js -->
+        <script src='~/Content/js/jquery-2.2.3.min.js'></script>
+        <!-- //Required common Js -->
+        <!-- loading-gif Js -->
+        <script src="~/Content/js/modernizr.js"></script>
+        <script>
+            //paste this code under head tag or in a seperate js file.
+            // Wait for window load
+            $(window).load(function () {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut("slow");;
+            });
+        </script>
+        <!--// loading-gif Js -->
+        <!-- pie-chart -->
+        <script src='~/Content/js/amcharts.js'></script>
+        <script>
+            var chart;
+            var legend;
+
+            var chartData = [{
+                country: "Sale Representatives",
+                value:@Model.salesRepCount
+                },
+            {
+                country: "Sale Executives",
+                value:@Model.salesExecutiveCount
+                },
+            {
+                country: "Lab Technicians",
+                value:@Model.labTechCount
+                },
+            {
+                country: "Managers",
+                value:@Model.managerCount
+                },
+
+
+            {
+                country: "Healthcare Representatives",
+                value:@Model.healthcareRepresentativeCount
+                },
+            {
+                country: "Manufacturing Directors",
+                value:@Model.manufacturingDirectorCount
+                },
+            {
+                country: "Research Scientists",
+                value:@Model.researchScientistCount
+                },
+            {
+                country: "Human Resources",
+                value:@Model.hrCount
+                }
+
+            ];
+
+            AmCharts.ready(function () {
+                // PIE CHART
+                chart = new AmCharts.AmPieChart();
+                chart.dataProvider = chartData;
+                chart.titleField = "country";
+                chart.valueField = "value";
+                chart.outlineColor = "";
+                chart.outlineAlpha = 0.8;
+                chart.outlineThickness = 2;
+                // this makes the chart 3D
+                chart.depth3D = 20;
+                chart.angle = 30;
+
+                // WRITE
+                chart.write("chartdiv");
+            });
+
+
+
+        </script>
+        <!--// pie-chart -->
+        <!-- Js for bootstrap working-->
+        <script src="~/Content/js/bootstrap.min.js"></script>
+        <!-- //Js for bootstrap working -->
+    </div>
+
+</body>
+
+</html>

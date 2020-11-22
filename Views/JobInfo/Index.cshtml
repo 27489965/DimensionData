@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Britehouse.Models.JobInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using PagedList.Mvc;
+@using PagedList;
+
+<h2>Job Information</h2>
+<p>
+    @Html.ActionLink("Data Analytics", "DataAnalytics")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessTravel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockOptionLevel)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockOptionLevel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item._id }) |
+                @Html.ActionLink("Details", "Details", new { id = item._id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item._id })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }))

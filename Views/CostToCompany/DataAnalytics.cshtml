@@ -1,0 +1,152 @@
+﻿@model Britehouse.AnalyticsModel.CostsToCompanyViewModel
+
+@{
+    ViewBag.Title = "Data Analytics";
+}
+
+<div class="banner_content text-center">
+    <p class="text-uppercase">
+        Dimension Data Project
+    </p>
+
+    <h2 class="text-uppercase mt-4 mb-5">
+        Cost To Company Dashboard
+    </h2>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>People Data Visualization</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <script>
+        addEventListener("load", function () {
+            +
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta Tags -->
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <!-- Common Css -->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Fontawesome Css -->
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet">
+    <!--// Fontawesome Css -->
+    <!--// Style-sheets -->
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!--//web-fonts-->
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Stats -->
+                    <div class="outer-w3-agile col-xl">
+
+
+                        <div class="stat-grid p-3 d-flex align-items-center justify-content-between bg-primary">
+                            <div class="s-l">
+                                <h5>Salaries</h5>
+                                <p class="paragraph-agileits-w3layouts text-white">Total salaries paid to Employees(Rands)</p>
+                            </div>
+                            <div class="s-r">
+                                <h6>
+                                    $@Model.totalSalary
+                                    <i class="fas fa-users"></i>
+                                </h6>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--// Stats -->
+                    <!-- Pie-chart -->
+                    <div class="outer-w3-agile col-xl ml-xl-3 mt-xl-0 mt-3">
+                        <h4 class="tittle-w3-agileits mb-4">Overtimes by Employees</h4>
+                        <div id="chartdiv"></div>
+                    </div>
+                    <!--// Pie-chart -->
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Required common Js -->
+    <script src='~/Content/js/jquery-2.2.3.min.js'></script>
+    <!-- //Required common Js -->
+    <!-- loading-gif Js -->
+    <script src="~/Content/js/modernizr.js"></script>
+    <script>
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- pie-chart -->
+    <script src='~/Content/js/amcharts.js'></script>
+    <script>
+        var chart;
+        var legend;
+
+        var chartData = [{
+            country: "Over Time",
+            value:  @Model.overtimeCount
+        },
+        {
+            country: "No Over Time",
+            value:  @Model.noOverTimeCount
+        }
+
+        ];
+
+        AmCharts.ready(function () {
+            // PIE CHART
+            chart = new AmCharts.AmPieChart();
+            chart.dataProvider = chartData;
+            chart.titleField = "country";
+            chart.valueField = "value";
+            chart.outlineColor = "";
+            chart.outlineAlpha = 0.8;
+            chart.outlineThickness = 2;
+            // this makes the chart 3D
+            chart.depth3D = 20;
+            chart.angle = 30;
+
+            // WRITE
+            chart.write("chartdiv");
+        });
+    </script>
+    <!--// pie-chart -->
+    <!-- Js for bootstrap working-->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- //Js for bootstrap working -->
+
+</body>
+
+</html>

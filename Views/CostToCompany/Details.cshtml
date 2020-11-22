@@ -1,0 +1,82 @@
+﻿@model Britehouse.Models.CostToCompany
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CostToCompany</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PayId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HourlyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentSalaryHike)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentSalaryHike)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model._id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

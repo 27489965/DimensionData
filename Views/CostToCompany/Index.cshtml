@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Britehouse.Models.CostToCompany>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using PagedList.Mvc;
+@using PagedList;
+
+<h2>Company Costs Management</h2>
+<p>
+    @Html.ActionLink("Data Analytics", "DataAnalytics")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DailyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OverTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentSalaryHike)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HourlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DailyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentSalaryHike)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item._id }) |
+                @Html.ActionLink("Details", "Details", new { id = item._id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item._id})
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }))

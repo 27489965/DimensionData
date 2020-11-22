@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Britehouse.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using PagedList.Mvc;
+@using PagedList;
+
+<h2>Employees Management</h2>
+<p>
+    @Html.ActionLink("Data Analytics", "DataAnalytics")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Over18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EducationField)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessTravel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistanceFromHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attrition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelationshipSatisfaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnvironmentSatisfaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobSatisfication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearsInCurrentRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumCompaniesWorked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalWorkingYears)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingTimesLastYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearsAtCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearsWithCurrManager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearsSinceLastPromotion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Over18)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationField)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistanceFromHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attrition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelationshipSatisfaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnvironmentSatisfaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobSatisfication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsInCurrentRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCompaniesWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalWorkingYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingTimesLastYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsAtCompany)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsWithCurrManager)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsSinceLastPromotion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }))
